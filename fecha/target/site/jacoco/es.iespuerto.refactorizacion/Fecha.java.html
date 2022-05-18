@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fecha.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fecha</a> &gt; <a href="index.source.html" class="el_package">es.iespuerto.refactorizacion</a> &gt; <span class="el_source">Fecha.java</span></div><h1>Fecha.java</h1><pre class="source lang-java linenums">package es.iespuerto.refactorizacion;
+
+/**
+ * Clase Fecha a refactorizar sin modificar los test ya creados anteriormente.
+ * Esta clase se compone de 1 metodo principal el cual validara los parametros
+ * de entrada que ha introducido el usuario de una fecha en concreto.
+ * 
+ * @author GuillermoSH
+ * @version 1.2
+ */
+public class Fecha {
+    private int dia;
+    private int mes;
+    private int anio;
+<span class="fc" id="L15">    private final int[] dias = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };</span>
+
+    /**
+     * Constructor parametrizado de la clase Fecha
+     * 
+     * @param dia  introducido por el usuario
+     * @param mes  introducido por el usuario
+     * @param anio introducido por el usuario
+     */
+<span class="fc" id="L24">    public Fecha(int dia, int mes, int anio) {</span>
+<span class="fc" id="L25">        this.anio = anio;</span>
+<span class="fc" id="L26">        this.mes = mes;</span>
+<span class="fc" id="L27">        this.dia = dia;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * Metodo que comprueba si el anio es bisiesto o no
+     * 
+     * @param anio a estudiar en el metodo
+     * @return condicion de estudio si es verdadera o falsa
+     */
+    private boolean esBisiesto(int anio) {
+<span class="fc bfc" id="L37" title="All 6 branches covered.">        return (anio % 400 == 0 || anio % 4 == 0 &amp;&amp; anio % 100 != 0);</span>
+    }
+
+    /**
+     * Metodo para validar el dia introducido por el usuario llamando al método
+     * {@link #esBisiesto(int)} para ver si febrero tiene 28 o 29 dias y si el dia
+     * es mayor al limite de dias del mes introducido, lanza una excepcion
+     * 
+     * @return si se valida la fecha en {@link #diaValido()} y {@link #mesValido()}
+     */
+    public boolean valida() {
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (esBisiesto(this.anio)) {</span>
+<span class="fc" id="L49">            dias[1] = 29;</span>
+        }
+<span class="fc bfc" id="L51" title="All 4 branches covered.">        return mesValido() &amp;&amp; diaValido();</span>
+
+    }
+
+    /**
+     * Metodo de validacion del mes de la fecha introducida por el usuario
+     * 
+     * @return true o false si se cumple o no la condicion de validacion
+     */
+    private boolean mesValido() {
+<span class="fc bfc" id="L61" title="All 4 branches covered.">        return (this.mes &gt; 0 &amp;&amp; this.mes &lt; 13);</span>
+    }
+
+    /**
+     * Metodo de validacion del dia de la fecha introducida por el usuario
+     * 
+     * @return true o false si se cumple o no la condicion de validacion
+     */
+    private boolean diaValido() {
+<span class="fc bfc" id="L70" title="All 4 branches covered.">        return (this.dia &lt;= dias[this.mes - 1] &amp;&amp; this.dia &gt; 0);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

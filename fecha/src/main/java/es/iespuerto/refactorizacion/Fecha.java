@@ -42,8 +42,7 @@ public class Fecha {
      * {@link #esBisiesto(int)} para ver si febrero tiene 28 o 29 dias y si el dia
      * es mayor al limite de dias del mes introducido, lanza una excepcion
      * 
-     * @param dia introducido por el usuario
-     * @return si se valida el dia en {@link #comprobarDia(int)}
+     * @return si se valida la fecha en {@link #diaValido()} y {@link #mesValido()}
      */
     public boolean valida() {
         if (esBisiesto(this.anio)) {
