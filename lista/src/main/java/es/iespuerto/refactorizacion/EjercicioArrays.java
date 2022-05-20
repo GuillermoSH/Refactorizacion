@@ -5,8 +5,8 @@ import java.util.*;
 public class EjercicioArrays {
     private int maxNota;
     private int minNota;
-    List<Integer> notasControl = null;
-    List<Integer> notasPracticas = null;
+    private List<Integer> notasControl = null;
+    private List<Integer> notasPracticas = null;
     private int[] listaClase = null;
 
     /**
@@ -19,6 +19,20 @@ public class EjercicioArrays {
         this.notasControl = obtenerNotasAleatorias(numAlumnos);
         this.notasPracticas = obtenerNotasAleatorias(numAlumnos);
         this.listaClase = obtenerListaAlumnado(numAlumnos);
+    }
+
+    /**
+     * Constructor parametrizado de la clase al que se le introducira dos listas de
+     * notas, una de control y otra de practicas para hacer el estudio de las
+     * calificaciones
+     * 
+     * @param notasControl   lista con las notas del alumnado en control
+     * @param notasPracticas lista con las notas del alumnado en practicas
+     */
+    public EjercicioArrays(List<Integer> notasControl, List<Integer> notasPracticas) {
+        this.notasControl = notasControl;
+        this.notasPracticas = notasPracticas;
+        this.listaClase = obtenerListaAlumnado(notasControl.size());
     }
 
     /**
@@ -47,7 +61,7 @@ public class EjercicioArrays {
         List<Integer> notasOrdenadas = new ArrayList<>();
         notasOrdenadas.addAll(notas);
         Collections.sort(notasOrdenadas);
-        maxNota = notasOrdenadas.get(0);
+        minNota = notasOrdenadas.get(0);
         return notas.indexOf(minNota) + 1;
     }
 
@@ -74,7 +88,7 @@ public class EjercicioArrays {
      * @param numAlumnos que se encuentran dentro de la lista
      * @return lista de calificaciones en practicas
      */
-    private int[] obtenerListaAlumnado(int numAlumnos) {
+    public int[] obtenerListaAlumnado(int numAlumnos) {
         int[] lista = new int[numAlumnos];
         for (int i = 0; i < numAlumnos; i++) {
             lista[i] = i + 1;
@@ -85,15 +99,17 @@ public class EjercicioArrays {
     /**
      * Metodo para la obtencion de un array de doubles con las medias de las
      * calificaciones obtenidas por cada alumno en ambas partes, es decir, en
-     * control y en la parte practica
+     * control y en la parte practica (ambas listas del mismo tamanio)
      * 
+     * @param notasControl   lista con las notas del alumnado en control
+     * @param notasPracticas lista con las notas del alumnado en practicas
      * @return media de las calificaciones obtenidas por el alumnado
      */
-    private double[] mediaCalificaciones() {
+    public double[] mediaCalificaciones(List<Integer> notasControl, List<Integer> notasPracticas) {
         double[] mediaCalificaciones = new double[notasControl.size()];
 
-        for (int i = 0; i < this.notasControl.size(); i++) {
-            mediaCalificaciones[i] = (((double) notasControl.get(i) + (double) notasPracticas.get(i)) / 2);
+        for (int i = 0; i < notasControl.size(); i++) {
+            mediaCalificaciones[i] = (((double) notasControl.get(i)) + ((double) notasPracticas.get(i))) / 2;
         }
         return mediaCalificaciones;
     }
@@ -141,16 +157,18 @@ public class EjercicioArrays {
      * · La primera posicion es la cuenta de aprobados
      * · La segunda posicion es la cuenta de suspensos
      * 
+     * @param notasControl   lista de notas del alumnado en control
+     * @param notasPracticas lista de notas del alumnado en practicas
      * @return array de int con las cuentas de aprobados y suspensos
      */
-    public int[] aprobadosYsuspensos() {
-        double[] media = mediaCalificaciones();
+    public int[] aprobadosYsuspensos(List<Integer> notasControl, List<Integer> notasPracticas) {
+        double[] media = mediaCalificaciones(notasControl, notasPracticas);
         int[] aprobadosYsuspensos = new int[2];
 
         for (int i = 0; i < media.length; i++) {
             if (media[i] >= 5) {
                 aprobadosYsuspensos[0]++;
-                break;
+                continue;
             }
             aprobadosYsuspensos[1]++;
         }
@@ -168,59 +186,26 @@ public class EjercicioArrays {
      */
     public String imprimirCalificaciones() {
         String resultado = "";
-        resultado += "Lista de clase:\n" + this.listaClase + "\n" + mediaCalificaciones();
-        resultado += "\nNotas Control:";
+        resultado += "\nLista de clase:\n" + Arrays.toString(this.listaClase);
+        resultado += "\n\nNotas Control:";
         resultado += "\n · Maxima nota obtenida por el alumno " + obtenerAluMaxNota(this.notasControl) + ": "
                 + this.maxNota;
         resultado += "\n · Minima nota obtenida por el alumno " + obtenerAluMinNota(this.notasControl) + ": "
                 + this.minNota;
-        resultado += "\n · Porcentajes de control: \n    " + porcentajeCalificaciones(this.notasControl);
+        resultado += "\n · Porcentajes calificaciones:\n    "
+                + Arrays.toString(porcentajeCalificaciones(this.notasControl));
         resultado += "\n\nNotas Practicas:";
         resultado += "\n · Maxima nota obtenida por el alumno " + obtenerAluMaxNota(this.notasPracticas) + ": "
                 + this.maxNota;
         resultado += "\n · Minima nota obtenida por el alumno " + obtenerAluMinNota(this.notasPracticas) + ": "
                 + this.minNota;
-        resultado += "\n · Porcentajes de control: \n    " + porcentajeCalificaciones(this.notasControl);
-        resultado += "\nNumero de aprobados: " + aprobadosYsuspensos()[0];
-        resultado += "\nNumero de suspensos: " + aprobadosYsuspensos()[1];
+        resultado += "\n · Porcentajes calificaciones:\n    "
+                + Arrays.toString(porcentajeCalificaciones(this.notasPracticas));
+        resultado += "\nMedia de calificaciones: "
+                + Arrays.toString(mediaCalificaciones(this.notasControl, this.notasPracticas));
+        resultado += "\nNumero de aprobados: " + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[0];
+        resultado += "\nNumero de suspensos: " + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[1];
 
         return resultado;
     }
-
-    public static void main(String[] args) {
-        EjercicioArrays alumnado1 = new EjercicioArrays(10);
-        List<Integer> notasControl = new ArrayList<>(Arrays.asList(2, 5, 10, 7, 4, 1, 6, 9, 0, 8));
-        double[] porcentajes = new double[11];
-        double[] sumaNotas = new double[11];
-
-        for (int i = 0; i < sumaNotas.length; i++) {
-            for (int j = 0; j < notasControl.size(); j++) {
-                if (notasControl.get(j) == i) {
-                    sumaNotas[i]++;
-                }
-            }
-        }
-
-        for (int i = 0; i < porcentajes.length; i++) {
-            porcentajes[i] = sumaNotas[i] / notasControl.size() * 100;
-        }
-
-        alumnado1.porcentajeCalificaciones(notasControl).toString().contains("" + porcentajes);
-
-        /**
-         * 6. Suponer un vector de Calificaciones de tamaño 40
-         * (máximo de alumnos por clase), pero que solo almacena las
-         * notas de 31 alumnos. Realizar un programa que permita insertar en
-         * la posición 4 del vector la calificación de un nuevo
-         * alumno en clase al que supuestamente le corresponde como nota un 6.
-         */
-        double[] calif = new double[40];
-        for (int j = 0; j < 31; j++) {
-            calif[j] = (int) (Math.random() * 11);
-        }
-        System.out.println("Nota antigua alumno nº4: " + calif[3]);
-        calif[3] = 6;
-        System.out.println("Nota nueva   alumno nº4: " + calif[3]);
-    }
-
 }

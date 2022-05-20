@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="es.iespuerto.refactorizacion.FechaTest" time="0.142" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="es.iespuerto.refactorizacion.FechaTest" time="0.146" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/daw/Escritorio/Refactorizacion/fecha/target/surefire/surefirebooter17435874973871459270.jar /home/daw/Escritorio/Refactorizacion/fecha/target/surefire 2022-05-18T17-57-55_905-jvmRun1 surefire16198484961690445893tmp surefire_013284405308946597653tmp"/>
+    <property name="sun.java.command" value="/home/daw/Escritorio/Refactorizacion/fecha/target/surefire/surefirebooter1998758493899475788.jar /home/daw/Escritorio/Refactorizacion/fecha/target/surefire 2022-05-20T19-26-00_824-jvmRun1 surefire1869511854177284560tmp surefire_016745974660594868749tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/daw/Escritorio/Refactorizacion/fecha/target/test-classes:/home/daw/Escritorio/Refactorizacion/fecha/target/classes:/home/daw/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/daw/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/daw/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/daw/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/daw/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/daw/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/daw/Escritorio/Refactorizacion/fecha/target/surefire/surefirebooter17435874973871459270.jar"/>
+    <property name="surefire.real.class.path" value="/home/daw/Escritorio/Refactorizacion/fecha/target/surefire/surefirebooter1998758493899475788.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.15+10-Ubuntu-0ubuntu0.20.04.1"/>
     <property name="user.name" value="daw"/>
@@ -56,14 +56,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="diaIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.078"/>
-  <testcase name="mesIncorrecto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
-  <testcase name="fechaCorrectaTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.002"/>
+  <testcase name="diaIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.061"/>
+  <testcase name="mesIncorrecto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.003"/>
+  <testcase name="fechaCorrectaTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.004"/>
   <testcase name="diciembreCorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.002"/>
-  <testcase name="diaBienFebreroBisiestoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
-  <testcase name="diaIncorrecto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.002"/>
-  <testcase name="noviembreIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0"/>
-  <testcase name="mesIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
+  <testcase name="diaBienFebreroBisiestoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.004"/>
+  <testcase name="diaIncorrecto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
+  <testcase name="noviembreIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.002"/>
+  <testcase name="mesIncorrectoTest" classname="es.iespuerto.refactorizacion.FechaTest" time="0.002"/>
   <testcase name="diaMalFebreroBisiesto1Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
   <testcase name="diaMalFebreroBisiesto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
   <testcase name="diaBienFebreroBisiesto2Test" classname="es.iespuerto.refactorizacion.FechaTest" time="0.001"/>
