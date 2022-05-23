@@ -11,8 +11,11 @@ public class EjercicioArraysTest {
 
     @BeforeEach
     public void beforeEach() {
+        // Creacion del objeto de la clase usando el constructor con numAlumnos
         alumnado1 = new EjercicioArrays(10);
+        // Lista de calificaciones en control
         notasControl = new ArrayList<>(Arrays.asList(2, 5, 10, 7, 4, 1, 6, 9, 0, 8));
+        // Lista de calificaciones en practicas
         notasPracticas = new ArrayList<>(Arrays.asList(3, 1, 4, 5, 1, 2, 9, 8, 10, 2));
     }
 

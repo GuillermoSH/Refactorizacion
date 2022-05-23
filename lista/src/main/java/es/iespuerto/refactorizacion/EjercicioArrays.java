@@ -23,7 +23,7 @@ public class EjercicioArrays {
 
     /**
      * Constructor parametrizado de la clase al que se le introducira dos listas de
-     * notas, una de control y otra de practicas para hacer el estudio de las
+     * notas, una de control y otra de practicas, para hacer el estudio de las
      * calificaciones
      * 
      * @param notasControl   lista con las notas del alumnado en control
