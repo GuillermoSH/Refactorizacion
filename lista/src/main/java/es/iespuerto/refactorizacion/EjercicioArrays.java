@@ -2,6 +2,18 @@ package es.iespuerto.refactorizacion;
 
 import java.util.*;
 
+/**
+ * Clase que de la posibilidad a hacer el estudio de las calificaciones de las
+ * notas en control y en practicas del alumnado de dos maneras:
+ * 
+ * · Generando una lista aleatoria de notas para ambas partes y una lista de
+ * alumnos por medio de la introduccion del numero de alumnos de la lista
+ * · Generando la lista de alumnado a partir de la introduccion de ambas listas
+ * de calificaciones de los alumnos ordenadas
+ * 
+ * @author GuillermoSH
+ * @version 1.0
+ */
 public class EjercicioArrays {
     private int maxNota;
     private int minNota;
@@ -46,7 +58,9 @@ public class EjercicioArrays {
         List<Integer> notasOrdenadas = new ArrayList<>();
         notasOrdenadas.addAll(notas);
         Collections.sort(notasOrdenadas, Collections.reverseOrder());
+
         maxNota = notasOrdenadas.get(0);
+
         return notas.indexOf(maxNota) + 1;
     }
 
@@ -61,7 +75,9 @@ public class EjercicioArrays {
         List<Integer> notasOrdenadas = new ArrayList<>();
         notasOrdenadas.addAll(notas);
         Collections.sort(notasOrdenadas);
+
         minNota = notasOrdenadas.get(0);
+
         return notas.indexOf(minNota) + 1;
     }
 
@@ -90,6 +106,7 @@ public class EjercicioArrays {
      */
     public int[] obtenerListaAlumnado(int numAlumnos) {
         int[] lista = new int[numAlumnos];
+
         for (int i = 0; i < numAlumnos; i++) {
             lista[i] = i + 1;
         }
