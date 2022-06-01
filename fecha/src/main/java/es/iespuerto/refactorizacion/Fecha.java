@@ -69,4 +69,20 @@ public class Fecha {
     private boolean diaValido() {
         return (this.dia <= dias[this.mes - 1] && this.dia > 0);
     }
+
+    /**
+     * Metodo que devuelve un string con la fecha si esta ha sido validada, si no
+     * devolvera el string vacio
+     * 
+     * @return string de la fecha validada o string vacio si no lo fue
+     */
+    public String imprimeFecha() {
+        String resultado = "";
+
+        if (valida()) {
+            resultado = String.format("%02d/%02d/%4d", this.dia, this.mes, this.anio);
+        }
+
+        return resultado;
+    }
 }

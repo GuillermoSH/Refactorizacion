@@ -2,38 +2,50 @@
 
 import java.util.*;
 
+/**
+ * Clase que de la posibilidad a hacer el estudio de las calificaciones de las
+ * notas en control y en practicas del alumnado de dos maneras:
+ * 
+ * · Generando una lista aleatoria de notas para ambas partes y una lista de
+ * alumnos por medio de la introduccion del numero de alumnos de la lista
+ * · Generando la lista de alumnado a partir de la introduccion de ambas listas
+ * de calificaciones de los alumnos ordenadas
+ * 
+ * @author GuillermoSH
+ * @version 1.0
+ */
 public class EjercicioArrays {
     private int maxNota;
     private int minNota;
-<span class="fc" id="L8">    private List&lt;Integer&gt; notasControl = null;</span>
-<span class="fc" id="L9">    private List&lt;Integer&gt; notasPracticas = null;</span>
-<span class="fc" id="L10">    private int[] listaClase = null;</span>
+<span class="fc" id="L20">    private List&lt;Integer&gt; notasControl = null;</span>
+<span class="fc" id="L21">    private List&lt;Integer&gt; notasPracticas = null;</span>
+<span class="fc" id="L22">    private int[] listaClase = null;</span>
 
     /**
      * Constructor parametrizado de la clase al que se le introducira el numero de
      * alumnos del que se quiere hacer el estudio de las notas
      * 
-     * @param numAlmunos del que se quiere hacer la muestra
+     * @param numAlumnos del que se quiere hacer la muestra
      */
-<span class="fc" id="L18">    public EjercicioArrays(int numAlumnos) {</span>
-<span class="fc" id="L19">        this.notasControl = obtenerNotasAleatorias(numAlumnos);</span>
-<span class="fc" id="L20">        this.notasPracticas = obtenerNotasAleatorias(numAlumnos);</span>
-<span class="fc" id="L21">        this.listaClase = obtenerListaAlumnado(numAlumnos);</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L30">    public EjercicioArrays(int numAlumnos) {</span>
+<span class="fc" id="L31">        this.notasControl = obtenerNotasAleatorias(numAlumnos);</span>
+<span class="fc" id="L32">        this.notasPracticas = obtenerNotasAleatorias(numAlumnos);</span>
+<span class="fc" id="L33">        this.listaClase = obtenerListaAlumnado(numAlumnos);</span>
+<span class="fc" id="L34">    }</span>
 
     /**
      * Constructor parametrizado de la clase al que se le introducira dos listas de
-     * notas, una de control y otra de practicas para hacer el estudio de las
+     * notas, una de control y otra de practicas, para hacer el estudio de las
      * calificaciones
      * 
      * @param notasControl   lista con las notas del alumnado en control
      * @param notasPracticas lista con las notas del alumnado en practicas
      */
-<span class="fc" id="L32">    public EjercicioArrays(List&lt;Integer&gt; notasControl, List&lt;Integer&gt; notasPracticas) {</span>
-<span class="fc" id="L33">        this.notasControl = notasControl;</span>
-<span class="fc" id="L34">        this.notasPracticas = notasPracticas;</span>
-<span class="fc" id="L35">        this.listaClase = obtenerListaAlumnado(notasControl.size());</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L44">    public EjercicioArrays(List&lt;Integer&gt; notasControl, List&lt;Integer&gt; notasPracticas) {</span>
+<span class="fc" id="L45">        this.notasControl = notasControl;</span>
+<span class="fc" id="L46">        this.notasPracticas = notasPracticas;</span>
+<span class="fc" id="L47">        this.listaClase = obtenerListaAlumnado(notasControl.size());</span>
+<span class="fc" id="L48">    }</span>
 
     /**
      * Metodo para la obtencion del alumno que ha obtenido la mayor nota dentro de
@@ -43,11 +55,13 @@ public class EjercicioArrays {
      * @return numero de alumno que ha obtenido la mayor nota
      */
     public int obtenerAluMaxNota(List&lt;Integer&gt; notas) {
-<span class="fc" id="L46">        List&lt;Integer&gt; notasOrdenadas = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L47">        notasOrdenadas.addAll(notas);</span>
-<span class="fc" id="L48">        Collections.sort(notasOrdenadas, Collections.reverseOrder());</span>
-<span class="fc" id="L49">        maxNota = notasOrdenadas.get(0);</span>
-<span class="fc" id="L50">        return notas.indexOf(maxNota) + 1;</span>
+<span class="fc" id="L58">        List&lt;Integer&gt; notasOrdenadas = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L59">        notasOrdenadas.addAll(notas);</span>
+<span class="fc" id="L60">        Collections.sort(notasOrdenadas, Collections.reverseOrder());</span>
+
+<span class="fc" id="L62">        maxNota = notasOrdenadas.get(0);</span>
+
+<span class="fc" id="L64">        return notas.indexOf(maxNota) + 1;</span>
     }
 
     /**
@@ -58,11 +72,13 @@ public class EjercicioArrays {
      * @return numero del alumno que ha obtenido la menor nota
      */
     public int obtenerAluMinNota(List&lt;Integer&gt; notas) {
-<span class="fc" id="L61">        List&lt;Integer&gt; notasOrdenadas = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L62">        notasOrdenadas.addAll(notas);</span>
-<span class="fc" id="L63">        Collections.sort(notasOrdenadas);</span>
-<span class="fc" id="L64">        minNota = notasOrdenadas.get(0);</span>
-<span class="fc" id="L65">        return notas.indexOf(minNota) + 1;</span>
+<span class="fc" id="L75">        List&lt;Integer&gt; notasOrdenadas = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L76">        notasOrdenadas.addAll(notas);</span>
+<span class="fc" id="L77">        Collections.sort(notasOrdenadas);</span>
+
+<span class="fc" id="L79">        minNota = notasOrdenadas.get(0);</span>
+
+<span class="fc" id="L81">        return notas.indexOf(minNota) + 1;</span>
     }
 
     /**
@@ -73,12 +89,12 @@ public class EjercicioArrays {
      * @return lista de calificaciones en control
      */
     private List&lt;Integer&gt; obtenerNotasAleatorias(int numAlumnos) {
-<span class="fc" id="L76">        List&lt;Integer&gt; notasAleatorias = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L92">        List&lt;Integer&gt; notasAleatorias = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (int i = 0; i &lt; numAlumnos; i++) {</span>
-<span class="fc" id="L79">            notasAleatorias.add((int) (Math.random() * 11));</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        for (int i = 0; i &lt; numAlumnos; i++) {</span>
+<span class="fc" id="L95">            notasAleatorias.add((int) (Math.random() * 11));</span>
         }
-<span class="fc" id="L81">        return notasAleatorias;</span>
+<span class="fc" id="L97">        return notasAleatorias;</span>
     }
 
     /**
@@ -89,11 +105,12 @@ public class EjercicioArrays {
      * @return lista de calificaciones en practicas
      */
     public int[] obtenerListaAlumnado(int numAlumnos) {
-<span class="fc" id="L92">        int[] lista = new int[numAlumnos];</span>
-<span class="fc bfc" id="L93" title="All 2 branches covered.">        for (int i = 0; i &lt; numAlumnos; i++) {</span>
-<span class="fc" id="L94">            lista[i] = i + 1;</span>
+<span class="fc" id="L108">        int[] lista = new int[numAlumnos];</span>
+
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        for (int i = 0; i &lt; numAlumnos; i++) {</span>
+<span class="fc" id="L111">            lista[i] = i + 1;</span>
         }
-<span class="fc" id="L96">        return lista;</span>
+<span class="fc" id="L113">        return lista;</span>
     }
 
     /**
@@ -106,12 +123,12 @@ public class EjercicioArrays {
      * @return media de las calificaciones obtenidas por el alumnado
      */
     public double[] mediaCalificaciones(List&lt;Integer&gt; notasControl, List&lt;Integer&gt; notasPracticas) {
-<span class="fc" id="L109">        double[] mediaCalificaciones = new double[notasControl.size()];</span>
+<span class="fc" id="L126">        double[] mediaCalificaciones = new double[notasControl.size()];</span>
 
-<span class="fc bfc" id="L111" title="All 2 branches covered.">        for (int i = 0; i &lt; notasControl.size(); i++) {</span>
-<span class="fc" id="L112">            mediaCalificaciones[i] = (((double) notasControl.get(i)) + ((double) notasPracticas.get(i))) / 2;</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">        for (int i = 0; i &lt; notasControl.size(); i++) {</span>
+<span class="fc" id="L129">            mediaCalificaciones[i] = (((double) notasControl.get(i)) + ((double) notasPracticas.get(i))) / 2;</span>
         }
-<span class="fc" id="L114">        return mediaCalificaciones;</span>
+<span class="fc" id="L131">        return mediaCalificaciones;</span>
     }
 
     /**
@@ -123,13 +140,13 @@ public class EjercicioArrays {
      * @return array con los porcentajes de las calificaciones
      */
     public double[] porcentajeCalificaciones(List&lt;Integer&gt; notas) {
-<span class="fc" id="L126">        double[] porcentajes = new double[11];</span>
+<span class="fc" id="L143">        double[] porcentajes = new double[11];</span>
 
-<span class="fc bfc" id="L128" title="All 2 branches covered.">        for (int i = 0; i &lt; porcentajes.length; i++) {</span>
-<span class="fc" id="L129">            porcentajes[i] = (sumaCalificaciones(notas)[i] / notas.size()) * 100;</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        for (int i = 0; i &lt; porcentajes.length; i++) {</span>
+<span class="fc" id="L146">            porcentajes[i] = (sumaCalificaciones(notas)[i] / notas.size()) * 100;</span>
         }
 
-<span class="fc" id="L132">        return porcentajes;</span>
+<span class="fc" id="L149">        return porcentajes;</span>
     }
 
     /**
@@ -140,16 +157,16 @@ public class EjercicioArrays {
      * @return array de doubles con la cuenta de calificaciones
      */
     private double[] sumaCalificaciones(List&lt;Integer&gt; notas) {
-<span class="fc" id="L143">        double[] sumaNotas = new double[11];</span>
+<span class="fc" id="L160">        double[] sumaNotas = new double[11];</span>
 
-<span class="fc bfc" id="L145" title="All 2 branches covered.">        for (int i = 0; i &lt; sumaNotas.length; i++) {</span>
-<span class="fc bfc" id="L146" title="All 2 branches covered.">            for (int j = 0; j &lt; notas.size(); j++) {</span>
-<span class="fc bfc" id="L147" title="All 2 branches covered.">                if (notas.get(j) == i) {</span>
-<span class="fc" id="L148">                    sumaNotas[i]++;</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        for (int i = 0; i &lt; sumaNotas.length; i++) {</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">            for (int j = 0; j &lt; notas.size(); j++) {</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">                if (notas.get(j) == i) {</span>
+<span class="fc" id="L165">                    sumaNotas[i]++;</span>
                 }
             }
         }
-<span class="fc" id="L152">        return sumaNotas;</span>
+<span class="fc" id="L169">        return sumaNotas;</span>
     }
 
     /**
@@ -162,17 +179,17 @@ public class EjercicioArrays {
      * @return array de int con las cuentas de aprobados y suspensos
      */
     public int[] aprobadosYsuspensos(List&lt;Integer&gt; notasControl, List&lt;Integer&gt; notasPracticas) {
-<span class="fc" id="L165">        double[] media = mediaCalificaciones(notasControl, notasPracticas);</span>
-<span class="fc" id="L166">        int[] aprobadosYsuspensos = new int[2];</span>
+<span class="fc" id="L182">        double[] media = mediaCalificaciones(notasControl, notasPracticas);</span>
+<span class="fc" id="L183">        int[] aprobadosYsuspensos = new int[2];</span>
 
-<span class="fc bfc" id="L168" title="All 2 branches covered.">        for (int i = 0; i &lt; media.length; i++) {</span>
-<span class="fc bfc" id="L169" title="All 2 branches covered.">            if (media[i] &gt;= 5) {</span>
-<span class="fc" id="L170">                aprobadosYsuspensos[0]++;</span>
-<span class="fc" id="L171">                continue;</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">        for (int i = 0; i &lt; media.length; i++) {</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">            if (media[i] &gt;= 5) {</span>
+<span class="fc" id="L187">                aprobadosYsuspensos[0]++;</span>
+<span class="fc" id="L188">                continue;</span>
             }
-<span class="fc" id="L173">            aprobadosYsuspensos[1]++;</span>
+<span class="fc" id="L190">            aprobadosYsuspensos[1]++;</span>
         }
-<span class="fc" id="L175">        return aprobadosYsuspensos;</span>
+<span class="fc" id="L192">        return aprobadosYsuspensos;</span>
     }
 
     /**
@@ -185,28 +202,28 @@ public class EjercicioArrays {
      * @return String con toda la informacion
      */
     public String imprimirCalificaciones() {
-<span class="fc" id="L188">        String resultado = &quot;&quot;;</span>
-<span class="fc" id="L189">        resultado += &quot;\nLista de clase:\n&quot; + Arrays.toString(this.listaClase);</span>
-<span class="fc" id="L190">        resultado += &quot;\n\nNotas Control:&quot;;</span>
-<span class="fc" id="L191">        resultado += &quot;\n · Maxima nota obtenida por el alumno &quot; + obtenerAluMaxNota(this.notasControl) + &quot;: &quot;</span>
-<span class="fc" id="L192">                + this.maxNota;</span>
-<span class="fc" id="L193">        resultado += &quot;\n · Minima nota obtenida por el alumno &quot; + obtenerAluMinNota(this.notasControl) + &quot;: &quot;</span>
-<span class="fc" id="L194">                + this.minNota;</span>
-<span class="fc" id="L195">        resultado += &quot;\n · Porcentajes calificaciones:\n    &quot;</span>
-<span class="fc" id="L196">                + Arrays.toString(porcentajeCalificaciones(this.notasControl));</span>
-<span class="fc" id="L197">        resultado += &quot;\n\nNotas Practicas:&quot;;</span>
-<span class="fc" id="L198">        resultado += &quot;\n · Maxima nota obtenida por el alumno &quot; + obtenerAluMaxNota(this.notasPracticas) + &quot;: &quot;</span>
-<span class="fc" id="L199">                + this.maxNota;</span>
-<span class="fc" id="L200">        resultado += &quot;\n · Minima nota obtenida por el alumno &quot; + obtenerAluMinNota(this.notasPracticas) + &quot;: &quot;</span>
-<span class="fc" id="L201">                + this.minNota;</span>
-<span class="fc" id="L202">        resultado += &quot;\n · Porcentajes calificaciones:\n    &quot;</span>
-<span class="fc" id="L203">                + Arrays.toString(porcentajeCalificaciones(this.notasPracticas));</span>
-<span class="fc" id="L204">        resultado += &quot;\nMedia de calificaciones: &quot;</span>
-<span class="fc" id="L205">                + Arrays.toString(mediaCalificaciones(this.notasControl, this.notasPracticas));</span>
-<span class="fc" id="L206">        resultado += &quot;\nNumero de aprobados: &quot; + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[0];</span>
-<span class="fc" id="L207">        resultado += &quot;\nNumero de suspensos: &quot; + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[1];</span>
+<span class="fc" id="L205">        String resultado = &quot;&quot;;</span>
+<span class="fc" id="L206">        resultado += &quot;\nLista de clase:\n&quot; + Arrays.toString(this.listaClase);</span>
+<span class="fc" id="L207">        resultado += &quot;\n\nNotas Control:&quot;;</span>
+<span class="fc" id="L208">        resultado += &quot;\n · Maxima nota obtenida por el alumno &quot; + obtenerAluMaxNota(this.notasControl) + &quot;: &quot;</span>
+                + this.maxNota;
+<span class="fc" id="L210">        resultado += &quot;\n · Minima nota obtenida por el alumno &quot; + obtenerAluMinNota(this.notasControl) + &quot;: &quot;</span>
+                + this.minNota;
+<span class="fc" id="L212">        resultado += &quot;\n · Porcentajes calificaciones:\n    &quot;</span>
+<span class="fc" id="L213">                + Arrays.toString(porcentajeCalificaciones(this.notasControl));</span>
+<span class="fc" id="L214">        resultado += &quot;\n\nNotas Practicas:&quot;;</span>
+<span class="fc" id="L215">        resultado += &quot;\n · Maxima nota obtenida por el alumno &quot; + obtenerAluMaxNota(this.notasPracticas) + &quot;: &quot;</span>
+                + this.maxNota;
+<span class="fc" id="L217">        resultado += &quot;\n · Minima nota obtenida por el alumno &quot; + obtenerAluMinNota(this.notasPracticas) + &quot;: &quot;</span>
+                + this.minNota;
+<span class="fc" id="L219">        resultado += &quot;\n · Porcentajes calificaciones:\n    &quot;</span>
+<span class="fc" id="L220">                + Arrays.toString(porcentajeCalificaciones(this.notasPracticas));</span>
+<span class="fc" id="L221">        resultado += &quot;\nMedia de calificaciones: &quot;</span>
+<span class="fc" id="L222">                + Arrays.toString(mediaCalificaciones(this.notasControl, this.notasPracticas));</span>
+<span class="fc" id="L223">        resultado += &quot;\nNumero de aprobados: &quot; + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[0];</span>
+<span class="fc" id="L224">        resultado += &quot;\nNumero de suspensos: &quot; + aprobadosYsuspensos(this.notasControl, this.notasPracticas)[1];</span>
 
-<span class="fc" id="L209">        return resultado;</span>
+<span class="fc" id="L226">        return resultado;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

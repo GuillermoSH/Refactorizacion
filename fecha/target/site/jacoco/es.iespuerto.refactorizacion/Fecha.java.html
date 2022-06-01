@@ -69,5 +69,21 @@ public class Fecha {
     private boolean diaValido() {
 <span class="fc bfc" id="L70" title="All 4 branches covered.">        return (this.dia &lt;= dias[this.mes - 1] &amp;&amp; this.dia &gt; 0);</span>
     }
+
+    /**
+     * Metodo que devuelve un string con la fecha si esta ha sido validada, si no
+     * devolvera el string vacio
+     * 
+     * @return string de la fecha validada o string vacio si no lo fue
+     */
+    public String imprimeFecha() {
+<span class="fc" id="L80">        String resultado = &quot;&quot;;</span>
+
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if (valida()) {</span>
+<span class="fc" id="L83">            resultado = String.format(&quot;%02d/%02d/%4d&quot;, this.dia, this.mes, this.anio);</span>
+        }
+
+<span class="fc" id="L86">        return resultado;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

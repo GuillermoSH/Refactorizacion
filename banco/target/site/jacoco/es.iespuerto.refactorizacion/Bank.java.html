@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bank.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">banco</a> &gt; <a href="index.source.html" class="el_package">es.iespuerto.refactorizacion</a> &gt; <span class="el_source">Bank.java</span></div><h1>Bank.java</h1><pre class="source lang-java linenums">package es.iespuerto.refactorizacion;
+
+/**
+ * Clase banco que utiliza la clase money para hacer el cambio entre monedas
+ * 
+ * @author GuillermoSH
+ */
+<span class="fc" id="L8">public class Bank {</span>
+    /**
+     * Metodo que recibe un objeto Money dinero y un String de moneda y devuelve un
+     * nuevo objeto Money con la cantidad calculada si se ha de hacer cambio de
+     * moneda
+     * 
+     * @param dinero a cambiar
+     * @param moneda a la que queremos convertir
+     * @return un nuevo objeto Money con la nueva cantidad y la moneda
+     */
+    public Money exchange(Money dinero, String moneda) {
+<span class="fc" id="L19">        int cantidad = dinero.getCantidad();</span>
+<span class="fc" id="L20">        String monedaActual = dinero.getMoneda();</span>
+
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (!monedaActual.equals(moneda)) {</span>
+<span class="fc" id="L23">            cantidad = calculoCambio(monedaActual, cantidad, moneda);</span>
+        }
+
+<span class="fc" id="L26">        return new Money(cantidad, moneda);</span>
+    }
+
+    /**
+     * Metodo para calcular el cambio insertando el valor actual de la moneda para
+     * hacer el cambio a la moneda que quieres cambiar
+     * 
+     * @param monedaActual que se quiere convertir
+     * @param cantidad     de dinero que se quiere cambiar
+     * @param monedaCambio a la que se quiere cambiar
+     * 
+     * @return el cambio entre monedas
+     */
+    private int calculoCambio(String monedaActual, int cantidad, String monedaCambio) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        int valorActual = (monedaActual.equals(&quot;EUR&quot;)) ? 130 : 100;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        int valorCambio = (monedaCambio.equals(&quot;USD&quot;)) ? 100 : 130;</span>
+
+<span class="fc" id="L43">        return (valorActual * cantidad) / valorCambio;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

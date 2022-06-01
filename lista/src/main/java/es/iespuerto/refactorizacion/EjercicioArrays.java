@@ -25,7 +25,7 @@ public class EjercicioArrays {
      * Constructor parametrizado de la clase al que se le introducira el numero de
      * alumnos del que se quiere hacer el estudio de las notas
      * 
-     * @param numAlmunos del que se quiere hacer la muestra
+     * @param numAlumnos del que se quiere hacer la muestra
      */
     public EjercicioArrays(int numAlumnos) {
         this.notasControl = obtenerNotasAleatorias(numAlumnos);

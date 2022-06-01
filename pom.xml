@@ -10,6 +10,9 @@
     <modules>
         <module>fecha</module>
         <module>lista</module>
+        <module>banco</module>
+        <module>maximo-comun</module>
+        <module>primo</module>
     </modules>
 
     <name>Proyectos de refactorizacion-test</name>

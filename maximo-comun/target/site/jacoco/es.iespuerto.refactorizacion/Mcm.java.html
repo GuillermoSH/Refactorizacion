@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Mcm.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maximo-comun</a> &gt; <a href="index.source.html" class="el_package">es.iespuerto.refactorizacion</a> &gt; <span class="el_source">Mcm.java</span></div><h1>Mcm.java</h1><pre class="source lang-java linenums">package es.iespuerto.refactorizacion;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class Mcm {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L7">        Scanner teclado = new Scanner(System.in);</span>
+        int num1,num2,mcm,i;
+<span class="nc" id="L9">        System.out.println(&quot;Ingrese primer numero:&quot;);</span>
+<span class="nc" id="L10">        num1=teclado.nextInt();</span>
+<span class="nc" id="L11">        System.out.println(&quot;Ingrese segundo numero:&quot;);</span>
+<span class="nc" id="L12">        num2=teclado.nextInt();</span>
+<span class="nc" id="L13">        mcm=1;</span>
+<span class="nc" id="L14">        i=2;</span>
+<span class="nc bnc" id="L15" title="All 4 branches missed.">        while(i &lt;= num1 || i &lt;= num2)</span>
+        {
+<span class="nc bnc" id="L17" title="All 4 branches missed.">            if(num1%i==0 || num2%i==0)</span>
+            {
+<span class="nc" id="L19">                mcm=mcm*i;</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">                if(num1%i==0) num1=num1/i;</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">                if(num2%i==0) num2=num2/i;</span>
+            }
+            else
+<span class="nc" id="L24">                i=i+1;</span>
+        }
+<span class="nc" id="L26">        System.out.println(&quot;El MCM es =&quot; +mcm);</span>
+<span class="nc" id="L27">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
